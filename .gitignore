@@ -3,7 +3,7 @@
 /.project
 /.classpath
 /.springBeans
-#/.idea
-#/*.iml
+/.idea
+/*.iml
 /src/main/webapp/resources/bower_components/**
 **/*.log
