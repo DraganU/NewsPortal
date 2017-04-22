@@ -4,6 +4,6 @@
 /.classpath
 /.springBeans
 #/.idea
-/*.iml
+#/*.iml
 /src/main/webapp/resources/bower_components/**
 **/*.log
