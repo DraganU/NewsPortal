@@ -20,20 +20,22 @@ public class News {
 
     String Description;
 
+    @Column(columnDefinition="TEXT")
     String Text;
+
+    NewsStatus status;
 
     NewsCategory category;
 
-    String Image1Url;
+    String ImageName1;
 
-    String Image2Url;
+    String ImageName2;
 
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name="created", nullable = false)
     public Date created;
 
-    // Type(type="yes_no")
     @Column(columnDefinition="boolean default false")
     public boolean deleted;
 }

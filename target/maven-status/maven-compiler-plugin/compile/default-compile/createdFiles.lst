@@ -1,8 +1,0 @@
-com/news/model/News.class
-com/news/controller/MainController.class
-com/news/model/NewsCategory.class
-com/news/service/NewsService.class
-com/news/controller/NewsController.class
-com/news/NewsApplication.class
-com/news/repository/NewsRepository.class
-com/news/service/impl/NewsServiceImpl.class
