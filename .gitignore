@@ -1,0 +1,9 @@
+/target/
+/.settings/
+/.project
+/.classpath
+/.springBeans
+/.idea
+/*.iml
+/src/main/webapp/resources/bower_components/**
+**/*.log
