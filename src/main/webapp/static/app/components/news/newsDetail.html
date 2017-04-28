@@ -1,0 +1,29 @@
+<form>
+    <div class="form-group">
+        <label for="sel">Kategorija :</label>
+        <select class="form-control" id="sel" ng-model="newNews.category">
+            <option>BRAKING</option>
+            <option>TOP</option>
+            <option>STANDARD</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="text">Title: </label>
+        <input type="text" class="form-control" id="text" ng-model="newNews.title">
+    </div>
+    <div class="form-group ">
+        <label for="desc">Description : </label>
+        <input class="form-control" type="text"  id="desc" rows="3" ng-model="newNews.description">
+    </div>
+    <div class="form-group">
+        <label for="text">Text : </label>
+        <textarea class="form-control" id="text" rows="5" ng-model="newNews.text"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputFile">File input</label>
+        <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+        <small id="fileHelp" class="form-text text-muted" ng-model="newNews.image1Url">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary" ng-click="createNews()">Create</button>
+</form>
