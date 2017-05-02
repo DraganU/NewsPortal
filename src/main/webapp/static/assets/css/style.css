@@ -1,0 +1,38 @@
+
+.bkg{
+	background: #320f77;
+/*	position: fixed;*/
+}
+.navbar-default .navbar-nav>li>a{
+	color: white;
+}
+
+.content{
+	background-color: #fcfcfc;
+	border-top: 2px solid violet;
+	padding-top: 20px;
+}
+
+.grey{
+	border: 1px solid grey;
+	margin:5px 0 ;
+	min-height:200px;
+}
+
+.sidebar{
+	border: 1px solid blue;
+	height: 30em;
+	
+}
+
+.mainContent{
+	/*height: 30em;*/
+	border: 1px solid lightgrey;
+}
+.search{
+	height:3em;
+}
+
+
+@media screen and (max-width: 770px) {}
+

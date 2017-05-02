@@ -1,41 +1,42 @@
 package com.news.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
-import java.util.Date;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
 public class News {
 
-    @Id
-    @GeneratedValue
-    Long id;
+  @Id @GeneratedValue Long id;
 
-    String Title;
+  String Title;
 
-    String Description;
+  String Description;
 
-    @Column(columnDefinition="TEXT")
-    String Text;
+  @Column(columnDefinition = "TEXT") String Text;
 
-    NewsStatus status;
+  NewsStatus status;
 
-    NewsCategory category;
+  NewsCategory category;
 
-    String ImageName1;
+  String ImageName1;
 
-    String ImageName2;
+  String ImageName2;
 
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    @Column(name="created", nullable = false)
-    public Date created;
+  @Temporal(TemporalType.DATE) @DateTimeFormat(pattern = "yyyy-MM-dd") @Column(name = "created", nullable = false)
+  public Date created;
 
-    @Column(columnDefinition="boolean default false")
-    public boolean deleted;
+  @Column(columnDefinition = "boolean default false") public boolean deleted;
 }

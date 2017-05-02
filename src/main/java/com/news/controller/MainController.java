@@ -1,15 +1,13 @@
 package com.news.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping(value = {"", "/", "home"})
+@Controller
 public class MainController {
 
-    @GetMapping
-    public String getHelloWorld () {
-        return "Hello Wolrd i molim te uradi mi HTML STRANICU";
-    }
+  @RequestMapping(value = { "", "/", "home" })
+  public String getHelloWorld() {
+    return "static/index.html";
+  }
 }
