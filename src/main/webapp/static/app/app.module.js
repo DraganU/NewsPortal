@@ -1,9 +1,8 @@
-(function(){
+(function() {
 
-	'use strict';
+  'use strict';
 
-	angular
-	.module('news-portal',['news-portal.core', 'news-portal.news']);
-
+  angular
+      .module('news-portal', ['news-portal.core', 'news-portal.news']);
 
 })();

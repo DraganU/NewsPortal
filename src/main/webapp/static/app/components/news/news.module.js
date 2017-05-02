@@ -1,9 +1,8 @@
-(function(){
+(function() {
 
-	'use strict';
+  'use strict';
 
-	angular
-	.module('news-portal.news',['ui.router']);
-
+  angular
+      .module('news-portal.news', ['ui.router']);
 
 })();

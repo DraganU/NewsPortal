@@ -1,39 +1,32 @@
 <!DOCTYPE html>
 <html ng-app='news-portal'>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="static/assets/css/bootstrap.css" rel="stylesheet">
-		<link href="static/assets/css/style.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="static/assets/css/bootstrap.css" rel="stylesheet">
+  <link href="static/assets/css/style.css" rel="stylesheet">
 
-		<script type="text/javascript" src="static/assets/js/angular.js"></script>
-		<script type="text/javascript" src="static/assets/js/angular-ui-router.js"></script>
+  <script type="text/javascript" src="static/assets/js/angular.js"></script>
+  <script type="text/javascript" src="static/assets/js/angular-ui-router.js"></script>
 
-		<script type="text/javascript" src="static/app/app.module.js"></script>
-		<script type="text/javascript" src="static/app/components/core/core.module.js"></script>
-		<script type="text/javascript" src="static/app/components/core/core.route.js"></script>
-		<script type="text/javascript" src="static/app/components/news/news.module.js"></script>
-		<script type="text/javascript" src="static/app/components/news/news.router.js"></script>
-		<script type="text/javascript" src="static/app/components/news/news.service.js"></script>
-		<script type="text/javascript" src="static/app/components/news/news.controller.js"></script>
-		<script type="text/javascript" src="static/app/components/news/newsDetail.controller.js"></script>
-	</head>
+  <script type="text/javascript" src="static/app/app.module.js"></script>
+  <script type="text/javascript" src="static/app/components/core/core.module.js"></script>
+  <script type="text/javascript" src="static/app/components/core/core.route.js"></script>
+  <script type="text/javascript" src="static/app/components/news/news.module.js"></script>
+  <script type="text/javascript" src="static/app/components/news/news.router.js"></script>
+  <script type="text/javascript" src="static/app/components/news/news.service.js"></script>
+  <script type="text/javascript" src="static/app/components/news/news.controller.js"></script>
+  <script type="text/javascript" src="static/app/components/news/newsDetail.controller.js"></script>
+</head>
 
-	<body>
-		<div class="container">
-			<div ui-view="navbar"></div>
-			<div ui-view='content'></div>
-			<div ui-view='sidebar'></div>
-		</div>	
-	</body>
+<body>
+<div class="container">
+  <div ui-view="navbar"></div>
+  <div ui-view='content'></div>
+  <div ui-view='sidebar'></div>
+</div>
+</body>
 </html>
-
-
-
-
-
-
-
 
 <!-- <div class="container">
 		<nav class="col-sm-12 navbar navbar-default bkg">
