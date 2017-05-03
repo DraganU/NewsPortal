@@ -8,15 +8,17 @@
   color: white;
 }
 
-.content {
+.mostPopular {
   background-color: #fcfcfc;
-  border-top: 2px solid violet;
-  padding-top: 20px;
+  border: 2px solid violet;
+  padding: 5px;
+  height: 33em;
 }
 
 .grey {
-  border: 1px solid grey;
-  margin: 5px 0;
+  border: 1px solid violet;
+  width: 32.5%;
+  margin: 5px 5px;
   min-height: 200px;
 }
 
@@ -28,11 +30,15 @@
 
 .mainContent {
   /*height: 30em;*/
-  border: 1px solid lightgrey;
+  border: 1px solid midnightblue;
 }
 
 .search {
   height: 3em;
+}
+
+.brDiv {
+  background: beige;
 }
 
 /*@media screen and (max-width: 770px) {}*/

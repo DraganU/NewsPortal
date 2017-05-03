@@ -42,20 +42,6 @@
             }
           }
         });
-    // .state('main.removeNews',{
-    // 	url: "/remove/:id",
-    // 	views: {
-    // 		'content@': {
-    // 			templateUrl:'static/app/components/news/news.html',
-    // 			controller: 'NewsDetailController',
-    // 			resolve: {
-    // 				removeNews: function ($stateParams,NewsService) {
-    // 				   return NewsService.deleteNews($stateParams.id);
-    // 				}
-    // 			}
-    // 		}
-    // 	}
-    // })
 
 
   }
