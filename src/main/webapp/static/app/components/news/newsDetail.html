@@ -1,20 +1,14 @@
-<form>
+<form class="col-md-8 col-md-offset-2">
   <div class="form-group">
     <label for="sel">Status :</label>
     <select class="form-control" id="sel" ng-model="news.status">
-      <option>BREAKING</option>
-      <option>MOSTPOPULAR</option>
-      <option>STANDARD</option>
+      <option ng-repeat="tip in status">{{tip}}</option>
     </select>
   </div>
   <div class="form-group">
     <label for="sel">Category :</label>
     <select class="form-control" id="sel" ng-model="news.category">
-      <option>POLITIKA</option>
-      <option>EKONOMIJA</option>
-      <option>KULTURA</option>
-      <option>ZABAVA</option>
-      <option>SPORT</option>
+      <option ng-repeat="categ in category">{{categ}}</option>
     </select>
   </div>
   <div class="form-group">
@@ -30,13 +24,11 @@
     <textarea class="form-control" id="text" rows="5" ng-model="news.text"></textarea>
   </div>
   <div class="form-group">
-    <label for="exampleInputFile">File input</label>
+    <label for="exampleInputFile">File :</label>
     <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
   </div>
-  <small id="fileHelp" class="form-text text-muted" ng-model="news.image1Url">This is some placeholder block-level
-    help text for the above input. It's a bit lighter and easily wraps to a new line.
-  </small>
+  <small id="fileHelp" class="form-text text-muted" ng-model="news.image1Url"></small>
 
+  <button type="submit" class="btn btn-primary" ng-click="submitNews()">Save</button>
 
-  <button type="submit" class="btn btn-primary" ng-click="submitNews()">Create</button>
 </form>
