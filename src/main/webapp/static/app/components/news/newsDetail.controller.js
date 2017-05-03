@@ -6,19 +6,20 @@
       .module('news-portal.news')
       .controller('NewsDetailController', NewsDetailController);
 
-  NewsDetailController.$inject = ["$scope", "newNews", "NewsService", "$state"];
-  function NewsDetailController($scope, newNews, NewsService, $state) {
+  NewsDetailController.$inject = ["$scope", "news", "NewsService", "$state"];
+  function NewsDetailController($scope, news, NewsService, $state) {
 
-    $scope.newNews = newNews;
+    $scope.news = news;
 
-    $scope.createNews = function() {
-      NewsService.addNews($scope.newNews).then(onSuccess());     //$state.go("main.news")
+    $scope.submitNews = function() {    //saveEditNews RADI I EDIT I ADD new NEWS
+      NewsService.saveEditNews($scope.news).then(onSuccess());     //$state.go("main.news")
       $state.go("main.news")
     }
 
     var onSuccess = function() {
       NewsService.getAllnews();
     }
+
 
   }
 

@@ -14,7 +14,7 @@
 </div>
 <hr>
 <div class="mostPopular">
-  <div class="col-md-4 col-sm-6 grey" ng-repeat="vest in news | filter: 'BREAKING'">
+  <div class="col-md-4 col-sm-6 grey" ng-repeat="vest in news | filter: 'BREAKING'| limitTo: 6">
     <!--<div class="col-md-4 col-sm-6 grey"></div>-->
     <h3>{{vest.title}} </h3>
     <br>
@@ -33,7 +33,8 @@
     <span class="pull-right">{{vest.created}}</span>
     <!--<p>{{vest.description}}</p>-->
     <p>{{vest.text}}</p>
-    <button class="btn btn-danger pull-right" ng-click="removeNews(vest)">Obrisi ovu vest</button>
+    <button class="btn btn-success pull-right" ui-sref="main.editNews({id:vest.id})">Edit</button>
+    <button class=" btn btn-danger pull-right" ng-click="removeNews(vest)">Obrisi ovu vest</button>
   </div>
   <!--</div>-->
 </div>

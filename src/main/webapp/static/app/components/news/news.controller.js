@@ -24,6 +24,10 @@
       NewsService.getAllnews();
     }
 
+    $scope.editNews = function(vest) {
+      $state.go("main.editNews", { vest: vest });
+    }
+
   }
 
 })();

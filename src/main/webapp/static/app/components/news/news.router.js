@@ -35,14 +35,29 @@
               templateUrl: 'static/app/components/news/newsDetail.html',
               controller: 'NewsDetailController',
               resolve: {
-                newNews: function() {
+                news: function() {
                   return {}
                 }
               }
             }
           }
+        })
+        .state('main.editNews', {
+          url: "/news/edit/:id",
+          views: {
+            'content@': {
+              templateUrl: 'static/app/components/news/newsDetail.html',
+              controller: 'NewsDetailController',
+              resolve: {
+                news: function($stateParams, NewsService) {
+                  return NewsService.getById($stateParams.id).then(function(data) {
+                    return data;
+                  })
+                }
+              }
+            }
+          }
         });
-
 
   }
 })();

@@ -18,12 +18,20 @@
       });
     };
 
-    var addNews = function(oneNews) {  //return $http.post(url + "/create", oneNews);  //moze i samo tako da se zavrsi
+    var saveEditNews = function(oneNews) {  //return $http.post(url + "/create", oneNews);  //moze i samo tako da se zavrsi
       return $http.post(url + "/create", oneNews).then(function(response) {
         console.log(response.data);
         return response.data;
       });
     };
+
+    var getById = function(id) {
+      return $http.get(url + "/" + id).then(function(response) {  //mozda zatreba params za search i filter
+        console.log(response.data);
+        return response.data;
+      });
+    }
+
 
     var deleteNews = function(vest) {
       return $http.delete(url + "/remove/" + vest.id);
@@ -31,8 +39,9 @@
 
     return {
       getAllnews: getAllnews,
-      addNews: addNews,
-      deleteNews: deleteNews
+      saveEditNews: saveEditNews,
+      deleteNews: deleteNews,
+      getById: getById
     };
   }
 
