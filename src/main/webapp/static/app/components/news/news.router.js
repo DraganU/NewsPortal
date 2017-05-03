@@ -32,7 +32,7 @@
           url: "/news/create",
           views: {
             'content@': {
-              templateUrl: 'static/app/components/news/newsDetail.html',
+              templateUrl: 'static/app/components/news/newsForm.html',
               controller: 'NewsDetailController',
               resolve: {
                 news: function() {
@@ -46,7 +46,7 @@
           url: "/news/edit/:id",
           views: {
             'content@': {
-              templateUrl: 'static/app/components/news/newsDetail.html',
+              templateUrl: 'static/app/components/news/newsForm.html',
               controller: 'NewsDetailController',
               resolve: {
                 news: function($stateParams, NewsService) {
