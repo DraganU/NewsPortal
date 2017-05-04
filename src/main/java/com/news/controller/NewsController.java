@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,18 +48,14 @@ public class NewsController {
 
   @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<News> addNews(@RequestBody News news) {
-    newsService.save(news);
-    return new ResponseEntity<News>(news, HttpStatus.OK);
-  }
-
-  // TODO change to service have return not like this...
-  @PutMapping(value = "/edit", consumes = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<News> editNews(@RequestBody News news) {
-    News newsPersistence = newsService.getNewsById(news.getId());
-    if (newsPersistence != null) {
-      newsService.save(news);
-      return new ResponseEntity<News>(news, HttpStatus.OK);
+    // Edit
+    if (newsService.isNewsExist(news)) {
+      return new ResponseEntity<>(newsService.save(news), HttpStatus.OK);
+    // Add
+    } else if ( news != null ) {
+      return new ResponseEntity<>(newsService.save(news), HttpStatus.OK);
     }
     return new ResponseEntity<>(HttpStatus.NOT_FOUND);
   }
+
 }
