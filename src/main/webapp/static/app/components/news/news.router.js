@@ -32,31 +32,32 @@
           url: "/news/create",
           views: {
             'content@': {
-              templateUrl: 'static/app/components/news/newsDetail.html',
+              templateUrl: 'static/app/components/news/newsForm.html',
               controller: 'NewsDetailController',
               resolve: {
-                newNews: function() {
+                news: function() {
                   return {}
                 }
               }
             }
           }
+        })
+        .state('main.editNews', {
+          url: "/news/edit/:id",
+          views: {
+            'content@': {
+              templateUrl: 'static/app/components/news/newsForm.html',
+              controller: 'NewsDetailController',
+              resolve: {
+                news: function($stateParams, NewsService) {
+                  return NewsService.getById($stateParams.id).then(function(data) {
+                    return data;
+                  })
+                }
+              }
+            }
+          }
         });
-    // .state('main.removeNews',{
-    // 	url: "/remove/:id",
-    // 	views: {
-    // 		'content@': {
-    // 			templateUrl:'static/app/components/news/news.html',
-    // 			controller: 'NewsDetailController',
-    // 			resolve: {
-    // 				removeNews: function ($stateParams,NewsService) {
-    // 				   return NewsService.deleteNews($stateParams.id);
-    // 				}
-    // 			}
-    // 		}
-    // 	}
-    // })
-
 
   }
 })();

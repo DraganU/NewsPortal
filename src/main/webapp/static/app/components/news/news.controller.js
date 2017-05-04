@@ -16,7 +16,7 @@
     };
 
     $scope.removeNews = function(vest) {
-      NewsService.deleteNews(vest).then(onSuccess());    //$state.reload()
+      NewsService.deleteNews(vest).then(onSuccess());    //$state.reload() - da osvezi stranicu posle brisanja
       $state.reload();
     }
 
@@ -29,5 +29,4 @@
 })();
 
 
-// CTRL ALT L    TI JE FORMATIRANJE KODA, NAMESTIO SAM TI FORMATERE DA SE UCIS DA PISES UREDAN KOD.
-// OVDE SAM TI UBACIO .RELOAD() DA OSVEZI STRANICU POSLE BRISANJA.
+
