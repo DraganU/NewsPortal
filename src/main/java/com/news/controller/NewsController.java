@@ -40,7 +40,7 @@ public class NewsController {
     News news = newsService.getNewsById(id);
     if (news != null) {
       newsService.removeById(id);
-      return new ResponseEntity<News>(news, HttpStatus.OK);
+      return new ResponseEntity<>(news, HttpStatus.OK);
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
