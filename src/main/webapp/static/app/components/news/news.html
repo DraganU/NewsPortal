@@ -1,10 +1,10 @@
 <button class="btn btn-primary" ng-click="addNews()">Add news</button>
 
 <div class="row">
-  <div class="col-sm-10 col-sm-offset-2">
+  <div class="col-sm-8 col-sm-offset-3">
     <form role="search">
       <div class="form-group col-sm-10">
-        <input type="text" class="form-control search" placeholder="Search">
+        <input type="text" class="form-control search" placeholder="Search...">
       </div>
       <div>
         <button type="submit" class="btn btn-primary">Pretrazi vest</button>
@@ -15,20 +15,22 @@
 
 <hr>
 
-<div class="mostPopular">   <!--<div class="col-md-4 col-sm-6 grey"></div>-->
-  <div class="col-md-4 col-sm-6 grey" ng-repeat="vest in news | filter: 'BREAKING'| limitTo: 6">
-    <h3>{{vest.title}} </h3>
+<div class="col-sm-12 mostPopular">   <!--<div class="col-md-4 col-sm-6 grey"></div>-->
+  <div class="col-md-4 col-sm-6 grey2" ng-repeat="vest in news | filter: 'BREAKING'| limitTo: 5">
+    <h3>{{vest.title}}</h3>
     <br>
     <span class="pull-right">{{vest.created}}</span>
     <p>{{vest.text}}</p>
   </div>
 </div>
 
-<hr>
+<div class="row col-md-12 prazniRed">
+  <hr>
+</div>
 
-<div class="col-sm-12 mainContent">
+<div class="col-sm-10 mainContent">
   <div class="col-md-4 col-sm-6 grey" ng-repeat="vest in news">
-    <h3>{{vest.title}} </h3>
+    <h3><a ui-sref="main.newsDetail({id:vest.id})">{{vest.title}}</a></h3>
     <br>
     <span class="pull-right">{{vest.created}}</span>
     <p>{{vest.text}}</p>

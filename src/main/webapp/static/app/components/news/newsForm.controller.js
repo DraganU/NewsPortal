@@ -4,10 +4,10 @@
 
   angular
       .module('news-portal.news')
-      .controller('NewsDetailController', NewsDetailController);
+      .controller('NewsFormController', NewsFormController);
 
-  NewsDetailController.$inject = ["$scope", "news", "NewsService", "$state"];
-  function NewsDetailController($scope, news, NewsService, $state) {
+  NewsFormController.$inject = ["$scope", "news", "NewsService", "$state"];
+  function NewsFormController($scope, news, NewsService, $state) {
 
     $scope.news = news;
     $scope.status = ["BREAKING", "MOSTPOPULAR", "STANDARD"];

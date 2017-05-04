@@ -5,38 +5,57 @@
 
 .navbar-default .navbar-nav > li > a {
   color: white;
+  font-size: 15px;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: beige;
+  transform: scale(1.5, 1.5)
+
 }
 
 .mostPopular {
-  background-color: #fcfcfc;
-  border: 2px solid violet;
+  /*border: 2px solid violet;*/
   padding: 5px;
-  height: 33em;
+  height: 30em;
 }
 
 .grey {
   border: 1px solid violet;
-  width: 32.5%;
+  width: 24%;
   margin: 5px 5px;
-  min-height: 200px;
+  min-height: 400px;
+}
+
+.grey2 {
+  border: 1px solid violet;
+  width: 19%;
+  margin: 7px 7px;
+  min-height: 400px;
 }
 
 .sidebar {
-  border: 1px solid blue;
-  height: 30em;
-
+  min-height: 60em;
+  padding-left: 2em;
+  background-color: #ffe6ff;
 }
 
 .mainContent {
-  border: 1px solid midnightblue;
+  border: 1px solid violet;
 }
 
 .search {
-  height: 3em;
+  height: 4em;
 }
 
-.brDiv {
-  background: beige;
+.detail {
+  background-color: lightyellow;
+  border: 2px solid violet;
+  min-height: 40em;
+}
+
+.prazniRed {
+  height: 4em;
 }
 
 /*@media screen and (max-width: 770px) {}*/

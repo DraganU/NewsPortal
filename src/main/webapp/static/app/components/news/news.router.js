@@ -33,7 +33,7 @@
           views: {
             'content@': {
               templateUrl: 'static/app/components/news/newsForm.html',
-              controller: 'NewsDetailController',
+              controller: 'NewsFormController',
               resolve: {
                 news: function() {
                   return {}
@@ -47,7 +47,7 @@
           views: {
             'content@': {
               templateUrl: 'static/app/components/news/newsForm.html',
-              controller: 'NewsDetailController',
+              controller: 'NewsFormController',
               resolve: {
                 news: function($stateParams, NewsService) {
                   return NewsService.getById($stateParams.id).then(function(data) {
@@ -57,7 +57,23 @@
               }
             }
           }
-        });
+        })
+        .state('main.newsDetail', {
+          url: "/news/:id",
+          views: {
+            'content@': {
+              templateUrl: 'static/app/components/news/newsDetail.html',
+              controller: 'NewsDetailController',
+              resolve: {
+                newsDetail: function($stateParams, NewsService) {
+                  return NewsService.getById($stateParams.id).then(function(data) {
+                    return data;
+                  })
+                }
+              }
+            }
+          }
+        })
 
   }
 })();
