@@ -21,10 +21,11 @@
     }, true);
 
     var getNewsByCategory = function() {
-      var filterParam = {
-        name: $scope.search
-      };
-      NewsService.getAllnews({ filter: filterParam }).then(function(data) {
+      NewsService.getAllnews({
+        "filter": {
+          "category": $scope.filter.category
+        }
+      }).then(function(data) {
         $scope.news = data;
       });
     };
