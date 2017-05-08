@@ -6,10 +6,29 @@
       .module('news-portal.news')
       .controller('NewsController', NewsController);
 
-  NewsController.$inject = ["$scope", "news", "$state", "NewsService"];
-  function NewsController($scope, news, $state, NewsService) {
+  NewsController.$inject = ["$scope", "news", "$state", "NewsService", "$stateParams"];
+  function NewsController($scope, news, $state, NewsService, $stateParams) {
 
     $scope.news = news;
+
+    $scope.filter = {
+      category: $stateParams.category ? $stateParams.category : ''
+      //search: $scope.search
+    }
+
+    $scope.$watch("filter", function() {
+      getNewsByCategory();
+    }, true);
+
+    var getNewsByCategory = function() {
+      var filterParam = {
+        name: $scope.search
+      };
+      NewsService.getAllnews({ filter: filterParam }).then(function(data) {
+        $scope.news = data;
+      });
+    };
+    getNewsByCategory();
 
     $scope.addNews = function() {
       $state.go("main.addNews");
