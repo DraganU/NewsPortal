@@ -47,12 +47,22 @@ public class NewsServiceImpl implements NewsService {
 
   @Transactional
   @Override
-  public void save(News news) {
+  public News save(News news) {
     if (news.getId() == null) {
       news.setCreated(new Date());
-      newsRepository.save(news);
+      return newsRepository.save(news);
     } else {
-      newsRepository.save(news);
+      return newsRepository.save(news);
     }
+  }
+
+  @Override
+  public boolean isNewsExist(News news) {
+    if (news != null && news.getId() != null) {
+      if (newsRepository.findOne(news.getId()) != null) {
+        return true;
+      }
+    }
+    return false;
   }
 }

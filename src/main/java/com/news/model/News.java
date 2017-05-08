@@ -21,19 +21,19 @@ public class News {
 
   @Id @GeneratedValue Long id;
 
-  String Title;
+  String title;
 
-  String Description;
+  String description;
 
-  @Column(columnDefinition = "TEXT") String Text;
+  @Column(columnDefinition = "TEXT") String text;
 
   NewsStatus status;
 
   NewsCategory category;
 
-  String ImageName1;
+  String imageName1;
 
-  String ImageName2;
+  String imageName2;
 
   @Temporal(TemporalType.DATE) @DateTimeFormat(pattern = "yyyy-MM-dd") @Column(name = "created", nullable = false)
   public Date created;
