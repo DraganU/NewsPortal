@@ -13,14 +13,20 @@
 
     $stateProvider
         .state('main.news', {
-          url: "/news",
+          url: "/news/:category",
           views: {
             'content@': {
               templateUrl: 'static/app/components/news/news.html',
               controller: 'NewsController',
               resolve: {
-                news: function(NewsService) {
-                  return NewsService.getAllnews().then(function(data) {
+                news: function(NewsService, $stateParams) {
+                  return NewsService.getAllnews(
+                      {
+                        "filter": {
+                          "category": $stateParams.category
+                        }
+                      }
+                  ).then(function(data) {
                     return data;
                   })
                 }
