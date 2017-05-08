@@ -15,7 +15,6 @@
       $state.go("main.addNews");
     };
 
-
     $scope.removeNews = function(vest) {
       NewsService.deleteNews(vest).then(onSuccess());    //$state.reload() - da osvezi stranicu posle brisanja
       $state.reload();
