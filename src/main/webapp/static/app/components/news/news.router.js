@@ -29,14 +29,14 @@
           }
         })
         .state('main.category', {
-          url: "/category",
+          url: "/search/:category",
           views: {
             'content@': {
               templateUrl: 'static/app/components/news/category.html',
               controller: 'CategoryController',
               resolve: {
-                news: function(NewsService, $stateParams) {
-                  return NewsService.getAllnews().then(function(data) {
+                category: function(NewsService, $stateParams) {
+                  return NewsService.searchCategory($stateParams.category).then(function(data) {
                     return data;
                   })
                 }
