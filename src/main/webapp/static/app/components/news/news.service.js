@@ -33,8 +33,8 @@
       return $http.delete(url + "/remove/" + vest.id);
     };
 
-    var searchCategory = function(category) {
-      return $http.get("http://localhost:8091/search/" + category).then(function(response) {  //mozda zatreba params za search i filter
+    var searchCategory = function() {
+      return $http.get("http://localhost:8091/search/category").then(function(response) {  //mozda zatreba params za search i filter
         return response.data;
       });
     }
