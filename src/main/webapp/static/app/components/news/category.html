@@ -1,0 +1,30 @@
+<button class="btn btn-primary" ng-click="addNews()">Add news</button>
+
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-3">
+    <form role="search">
+      <div class="form-group col-sm-10">
+        <input type="text" class="form-control search" placeholder="Search...">
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary">Pretrazi vest</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<hr>
+
+<div class="col-sm-10 mainContent">
+  <div class="col-md-4 col-sm-6 grey" ng-repeat="vest in news">
+    <div>
+      <!--<img ng-src="{{vest.image_name1}}">-->
+    </div>
+    <h3><a ui-sref="main.newsDetail({id:vest.id})">{{vest.title}}</a></h3>
+    <br>
+    <span class="pull-right">{{vest.created}}</span>
+    <p>{{vest.text}}</p>
+    <button class="btn btn-success pull-right" ui-sref="main.editNews({id:vest.id})">Edit</button>
+    <button class=" btn btn-danger pull-right" ng-click="removeNews(vest)">Obrisi ovu vest</button>
+  </div>
+</div>
