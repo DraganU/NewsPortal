@@ -10,18 +10,17 @@
   function NewsController($scope, news, $state, NewsService, $stateParams) {
 
     $scope.news = news;
+    $scope.hideFooter = false;
 
     $scope.addNews = function() {
       $state.go("main.addNews");
     };
 
     $scope.removeNews = function(vest) {
-      NewsService.deleteNews(vest).then(onSuccess());    //$state.reload() - da osvezi stranicu posle brisanja
-      $state.reload();
+      NewsService.deleteNews(vest).then(states()).then($state.reload());
     }
-
-    var onSuccess = function() {
-      NewsService.getAllnews();
+    var states = function() {
+      $state.go("main.news", { reload: true });
     }
 
   }
@@ -30,8 +29,7 @@
 
 
 // $scope.filter = {
-//   category: $stateParams.category ? $stateParams.category : ''
-//   //search: $scope.search
+//   search: $scope.search
 // }
 //
 // $scope.$watch("filter", function() {
@@ -41,7 +39,7 @@
 // var getNewsByCategory = function() {
 //   NewsService.getAllnews({
 //     "filter": {
-//       "category": $scope.filter.category
+//       "search": $scope.filter.search
 //     }
 //   }).then(function(data) {
 //     $scope.news = data;

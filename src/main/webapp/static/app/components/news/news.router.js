@@ -90,6 +90,9 @@
             }
           }
         })
+    // .run(['$state', function($state) {
+    //   $state.transitionTo('main.newsDetail');
+    // }]);
 
   }
 })();
