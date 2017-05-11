@@ -11,8 +11,8 @@
 
     var url = "http://localhost:8091/news";
 
-    var getAllnews = function(params) {
-      return $http.get(url, { "params": params }).then(function(response) {  //mozda zatreba params za search i filter
+    var getAllnews = function() {
+      return $http.get(url).then(function(response) {
         return response.data;
       });
     };

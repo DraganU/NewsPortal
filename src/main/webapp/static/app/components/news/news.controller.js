@@ -6,8 +6,8 @@
       .module('news-portal.news')
       .controller('NewsController', NewsController);
 
-  NewsController.$inject = ["$scope", "news", "$state", "NewsService", "$stateParams"];
-  function NewsController($scope, news, $state, NewsService, $stateParams) {
+  NewsController.$inject = ["$scope", "news", "$state", "NewsService", "$stateParams", "$timeout"];
+  function NewsController($scope, news, $state, NewsService, $stateParams, $timeout) {
 
     $scope.news = news;
     $scope.hideFooter = false;
@@ -17,10 +17,18 @@
     };
 
     $scope.removeNews = function(vest) {
-      NewsService.deleteNews(vest).then(states()).then($state.reload());
+      NewsService.deleteNews(vest).then($timeout(function() {
+            $state.reload();  //dovoljno je samo ovo (umesto stateRefresh();) a sa pozivom $state.go('main.news') NECE RADIti
+          }, 300)             //JER JE ON VEC NA NEWS STR. NE MOZE DA SE OPET PREKO 'main.news', vrati na samu sebe neg mora state.reload
+      )
     }
-    var states = function() {
-      $state.go("main.news", { reload: true });
+
+    var stateRefresh = function() {               //moze i da pise $state.go() umesto trransitionTo; isto je
+      $state.go('main.news', $stateParams, {
+        reload: true,
+        inherit: false,
+        notify: true
+      });
     }
 
   }
@@ -28,21 +36,4 @@
 })();
 
 
-// $scope.filter = {
-//   search: $scope.search
-// }
-//
-// $scope.$watch("filter", function() {
-//   getNewsByCategory();
-// }, true);
-//
-// var getNewsByCategory = function() {
-//   NewsService.getAllnews({
-//     "filter": {
-//       "search": $scope.filter.search
-//     }
-//   }).then(function(data) {
-//     $scope.news = data;
-//   });
-// };
-// getNewsByCategory();
+
