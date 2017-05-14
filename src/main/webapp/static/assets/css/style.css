@@ -36,7 +36,6 @@
 
 .sidebar {
   min-height: 60em;
-  padding-left: 2em;
   background-color: #ffe6ff;
 }
 
@@ -56,6 +55,21 @@
 
 .prazniRed {
   height: 4em;
+}
+
+.foot {
+  width: 100%;
+  height: 20em;
+  background: black;
+  clear: both;
+  position: relative; /*absolute je dobar za prelamanje na devices-ima*/
+  margin-top: -20em;
+}
+
+.foot p {
+  color: white;
+  font-size: large;
+  padding-left: 20px;
 }
 
 /*@media screen and (max-width: 770px) {}*/

@@ -28,6 +28,22 @@
             }
           }
         })
+        .state('main.category', {
+          url: "/search/:category",
+          views: {
+            'content@': {
+              templateUrl: 'static/app/components/news/category.html',
+              controller: 'CategoryController',
+              resolve: {
+                category: function(NewsService, $stateParams) {
+                  return NewsService.searchCategory($stateParams.category).then(function(data) {
+                    return data;
+                  })
+                }
+              }
+            }
+          }
+        })
         .state('main.addNews', {
           url: "/news/create",
           views: {
@@ -74,6 +90,9 @@
             }
           }
         })
+    // .run(['$state', function($state) {
+    //   $state.transitionTo('main.newsDetail');
+    // }]);
 
   }
 })();
