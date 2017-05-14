@@ -36,7 +36,7 @@
               controller: 'CategoryController',
               resolve: {
                 category: function(NewsService, $stateParams) {
-                  return NewsService.searchCategory($stateParams).then(function(data) {
+                  return NewsService.searchCategory($stateParams.category).then(function(data) {
                     return data;
                   })
                 }
