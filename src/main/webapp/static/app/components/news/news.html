@@ -1,41 +1,47 @@
-<button class="btn btn-primary" ng-click="addNews()">Add news</button>
+<div>
+  <!--HEADER-->
+  <div class="row">
 
-<div class="row">
-  <div class="col-sm-8 col-sm-offset-3">
-    <form role="search">
-      <div class="form-group col-sm-10">
-        <input type="text" class="form-control search" placeholder="Search...">
-      </div>
-      <div>
-        <button type="submit" class="btn btn-primary">Pretrazi vest</button>
-      </div>
-    </form>
+    <div class="col-sm-3">
+      <button class="btn btn-success" ng-click="addNews()">Add news</button>
+    </div>
+
+    <div class="col-sm-8 col-sm-offset-1">
+      <form role="search">
+        <div class="form-group col-sm-9">
+          <input type="text" class="form-control input-sm search" placeholder="Search...">
+        </div>
+        <div class="col-sm-3">
+          <button type="submit" class="btn btn-primary search-btn">Pretrazi vest</button>
+        </div>
+      </form>
+    </div>
+
   </div>
-</div>
 
-<hr>
-
-<div class="col-sm-12 mostPopular">   <!--<div class="col-md-4 col-sm-6 grey"></div>-->
-  <div class="col-md-4 col-sm-6 grey2" ng-repeat="vest in news | filter: 'BREAKING'| limitTo: 5">
-    <h3>{{vest.title}}</h3>
-    <br>
-    <span class="pull-right">{{vest.created}}</span>
-    <p>{{vest.text}}</p>
+  <!--BREAKING NEWS-->
+  <div class="col-sm-12 content-container">   <!--<div class="col-md-4 col-sm-6 grey"></div>-->
+    <h3>Breaking</h3>
+    <div class="col-sm-4 breaking" ng-repeat="vest in news | filter: 'BREAKING'| limitTo: 6">
+      <h3>{{vest.title}}</h3>
+      <br>
+      <span class="pull-right">{{vest.created}}</span>
+      <p>{{vest.text}}</p>
+    </div>
   </div>
-</div>
 
-<div class="row col-md-12 prazniRed">
-  <hr>
-</div>
-
-<div class="col-sm-10 mainContent">
-  <div class="col-md-4 col-sm-6 grey" ng-repeat="vest in news">
-    <h3><a ui-sref="main.newsDetail({id:vest.id})">{{vest.title}}</a></h3>
-    <br>
-    <span class="pull-right">{{vest.created}}</span>
-    <p>{{vest.text}}</p>
-    <button class="btn btn-success pull-right" ui-sref="main.editNews({id:vest.id})">Edit news</button>
-    <button class=" btn btn-danger pull-right" ng-click="removeNews(vest)">Delete news</button>
+  <!--STANDARD NEWS-->
+  <div class="col-sm-12 content-container">
+    <h3>Standard</h3>
+    <div class="col-sm-3 standard" ng-repeat="vest in news">
+      <h3><a ui-sref="main.newsDetail({id:vest.id})">{{vest.title}}</a></h3>
+      <br>
+      <span class="pull-right">{{vest.created}}</span>
+      <p>{{vest.text}}</p>
+      <br>
+      <button class="btn-sm btn-success pull-right" ui-sref="main.editNews({id:vest.id})">Edit news</button>
+      <button class=" btn-sm btn-danger pull-right" ng-click="removeNews(vest)">Delete news</button>
+    </div>
   </div>
 </div>
 
