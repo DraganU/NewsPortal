@@ -22,11 +22,12 @@
   <!--BREAKING NEWS-->
   <div class="col-sm-12 content-container">   <!--<div class="col-md-4 col-sm-6 grey"></div>-->
     <h3>Breaking</h3>
-    <div class="col-sm-4 breaking" ng-repeat="vest in news | filter: 'BREAKING'| limitTo: 6">
-      <h3>{{vest.title}}</h3>
-      <br>
-      <span class="pull-right">{{vest.created}}</span>
-      <p>{{vest.text}}</p>
+    <div style="background-image: url('{{vest.imageName1}}')" class="col-sm-4 breaking" ng-repeat="vest in news | filter: 'BREAKING'| limitTo: 6">
+      <div class="breaking-title-section">
+        <h4>{{vest.title}}</h4>
+        <span class="pull-right">{{vest.created}}</span>
+        <p>{{vest.description}}</p>
+      </div>
     </div>
   </div>
 
@@ -37,7 +38,7 @@
       <h3><a ui-sref="main.newsDetail({id:vest.id})">{{vest.title}}</a></h3>
       <br>
       <span class="pull-right">{{vest.created}}</span>
-      <p>{{vest.text}}</p>
+      <p>{{vest.description}}</p>
       <br>
       <button class="btn-sm btn-success pull-right" ui-sref="main.editNews({id:vest.id})">Edit news</button>
       <button class=" btn-sm btn-danger pull-right" ng-click="removeNews(vest)">Delete news</button>
