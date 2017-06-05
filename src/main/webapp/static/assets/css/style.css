@@ -1,51 +1,89 @@
-
-.bkg {
-  background: #320f77;
+body {
+  background-color: whitesmoke;
+  /* GOOGLE FONTS (IMPORTED)*/
+  /*font-family: 'Scope One', serif;*/
+  /*font-family: 'Roboto', sans-serif;*/
+  font-family: 'Montserrat', sans-serif;
 }
 
-.navbar-default .navbar-nav > li > a {
+h1, h2, h3, h4 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar-inverse {
+  background: #424242;
+  height: 70px;
+}
+
+.navbar-right {
+  margin-right: 0.2em;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  font-family: 'Roboto', sans-serif;
+  color: whitesmoke;
+  font-size: 16px;
+  padding-top: 2em;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
   color: white;
-  font-size: 15px;
+  font-weight: bold;
+  transform: scale(1.2, 1.2);
+  transition: 0.4s;
 }
 
-.navbar-default .navbar-nav > li > a:hover {
-  color: beige;
-  transform: scale(1.5, 1.5)
-
-}
-
-.mostPopular {
-  /*border: 2px solid violet;*/
-  padding: 5px;
-  height: 30em;
-}
-
-.grey {
-  border: 1px solid violet;
-  width: 24%;
-  margin: 5px 5px;
-  min-height: 400px;
-}
-
-.grey2 {
-  border: 1px solid violet;
-  width: 19%;
-  margin: 7px 7px;
-  min-height: 400px;
-}
-
-.sidebar {
-  min-height: 60em;
-  padding-left: 2em;
-  background-color: #ffe6ff;
-}
-
-.mainContent {
-  border: 1px solid violet;
+.icon-logo {
+  margin-top: 1em;
+  width: 45px;
+  height: 45px;
+  background-image: url("../images/newspaper-10-xxl.png");
+  background-size: contain;
 }
 
 .search {
-  height: 4em;
+  height: 3em;
+}
+
+.search-btn {
+  float: right;
+}
+
+.content-container {
+  border-top: 1px solid lightgray;
+  height: auto;
+  padding: 0;
+  margin-bottom: 2em;
+}
+
+.breaking {
+  border: 3px solid whitesmoke;
+  position: relative;
+  padding: 1em 1em;
+  min-height: 300px;
+  background-size: 100% 100%;
+  color: white;
+  background-repeat: no-repeat;
+}
+
+.breaking-title-section {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1em;
+  width: 100%;
+  background: linear-gradient(to top, black, transparent);
+}
+
+.standard {
+  border: 1px solid lightblue;
+  min-height: 250px;
+}
+
+.sidebar {
+  padding: 1em;
+  min-height: 60em;
+  background-color: #69F0AE;
 }
 
 .detail {
@@ -56,6 +94,22 @@
 
 .prazniRed {
   height: 4em;
+}
+
+.foot {
+  width: 100%;
+  height: 20em;
+  background: #424242;
+  clear: both;
+  position: relative; /*absolute je dobar za prelamanje na devices-ima*/
+  margin-top: -20em;
+}
+
+.foot p {
+  padding: 3em;
+  color: white;
+  font-size: large;
+  text-align: center;
 }
 
 /*@media screen and (max-width: 770px) {}*/

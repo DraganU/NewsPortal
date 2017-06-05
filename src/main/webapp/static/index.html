@@ -3,12 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--STYLE-->
   <link href="static/assets/css/bootstrap.css" rel="stylesheet">
   <link href="static/assets/css/style.css" rel="stylesheet">
-
+  <!--FONTS-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto|Scope+One" rel="stylesheet">
+  <!--ANGULAR-->
   <script type="text/javascript" src="static/assets/js/angular.js"></script>
   <script type="text/javascript" src="static/assets/js/angular-ui-router.js"></script>
-
+  <!--APP MODULES-->
   <script type="text/javascript" src="static/app/app.module.js"></script>
   <script type="text/javascript" src="static/app/components/core/core.module.js"></script>
   <script type="text/javascript" src="static/app/components/core/core.route.js"></script>
@@ -18,13 +21,19 @@
   <script type="text/javascript" src="static/app/components/news/news.controller.js"></script>
   <script type="text/javascript" src="static/app/components/news/newsForm.controller.js"></script>
   <script type="text/javascript" src="static/app/components/news/newsDetail.controller.js"></script>
+  <script type="text/javascript" src="static/app/components/news/category.controller.js"></script>
 </head>
 
 <body>
-<div class="container-fluid">
-  <div ui-view="navbar"></div>
-  <div ui-view='content'></div>
-  <div ui-view='sidebar'></div>
+<div>
+  <section ui-view="navbar"></section>
+  <section>
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="col-sm-9" ui-view='content'></div>
+      <div class="col-sm-3" ui-view='sidebar'></div>
+    </div>
+  </section>
+  <section ui-view='footer'></section>
 </div>
 </body>
 </html>

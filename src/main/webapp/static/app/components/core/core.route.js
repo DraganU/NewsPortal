@@ -20,6 +20,9 @@
             },
             sidebar: {
               templateUrl: 'static/app/components/core/sidebar.html'
+            },
+            footer: {
+              templateUrl: 'static/app/components/core/footer.html'
             }
           }
         })

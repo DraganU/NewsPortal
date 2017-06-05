@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-3">
+    <form role="search">
+      <div class="form-group col-sm-10">
+        <input type="text" class="form-control search" placeholder="Search...">
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary">Pretrazi vest</button>
+      </div>
+    </form>
+  </div>
+</div>
+<hr>
+<div class="col-sm-10 mainContent">
+  <div class="col-md-4 col-sm-6 grey" ng-repeat="categ in category">
+    <div>
+    </div>
+    <h3><a>{{categ.title}}</a></h3>
+    <br>
+    <span class="pull-right">{{categ.created}}</span>
+    <p>{{categ.text}}</p>
+  </div>
+</div>
+

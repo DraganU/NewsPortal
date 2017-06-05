@@ -11,8 +11,8 @@
 
     var url = "http://localhost:8091/news";
 
-    var getAllnews = function(params) {
-      return $http.get(url, { "params": params }).then(function(response) {  //mozda zatreba params za search i filter
+    var getAllnews = function() {
+      return $http.get(url).then(function(response) {
         return response.data;
       });
     };
@@ -33,13 +33,42 @@
       return $http.delete(url + "/remove/" + vest.id);
     };
 
+    var searchByCategory = function(params) {
+      return $http.get("http://localhost:8091/search/category?category=" + params).then(function(response) {
+        console.log(response.data);
+        return response.data;
+      });
+    }
+
+    var searchByStatus = function(params) {
+      return $http.get("http://localhost:8091/search/status?status=" + params).then(function(response) {
+        console.log(response.data);
+        return response.data;
+      });
+    }
+
+    var searchByTitle = function(params) {
+      return $http.get("http://localhost:8091/search/title?title=" + params).then(function(response) {
+        console.log(response.data);
+        return response.data;
+      });
+    }
+
+    var stateReload = function(state) {
+      state.reload();
+    }
+
     return {
       getAllnews: getAllnews,
       createNewsAndEditNews: createNewsAndEditNews,
       deleteNews: deleteNews,
-      getById: getById
+      getById: getById,
+      searchByCategory: searchByCategory,
+      searchByStatus: searchByStatus,
+      searchByTitle: searchByTitle,
+      stateReload: stateReload
     };
-
   }
+
 
 })();
