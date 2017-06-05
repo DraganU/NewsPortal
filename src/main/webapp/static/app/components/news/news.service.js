@@ -33,11 +33,29 @@
       return $http.delete(url + "/remove/" + vest.id);
     };
 
-    var searchCategory = function(params) {
+    var searchByCategory = function(params) {
       return $http.get("http://localhost:8091/search/category?category=" + params).then(function(response) {
         console.log(response.data);
         return response.data;
       });
+    }
+
+    var searchByStatus = function(params) {
+      return $http.get("http://localhost:8091/search/status?status=" + params).then(function(response) {
+        console.log(response.data);
+        return response.data;
+      });
+    }
+
+    var searchByTitle = function(params) {
+      return $http.get("http://localhost:8091/search/title?title=" + params).then(function(response) {
+        console.log(response.data);
+        return response.data;
+      });
+    }
+
+    var stateReload = function(state) {
+      state.reload();
     }
 
     return {
@@ -45,9 +63,12 @@
       createNewsAndEditNews: createNewsAndEditNews,
       deleteNews: deleteNews,
       getById: getById,
-      searchCategory: searchCategory
+      searchByCategory: searchByCategory,
+      searchByStatus: searchByStatus,
+      searchByTitle: searchByTitle,
+      stateReload: stateReload
     };
-
   }
+
 
 })();

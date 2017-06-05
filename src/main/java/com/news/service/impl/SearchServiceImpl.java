@@ -19,17 +19,17 @@ public class SearchServiceImpl implements SearchService {
 
   @Override
   public List<News> searchByCategory(NewsCategory newsCategory) {
-    return newsRepository.findAllByCategory(newsCategory);
+    return withoutDeleted(newsRepository.findAllByCategory(newsCategory));
   }
 
   @Override
   public List<News> searchByStatus(NewsStatus newsStatus) {
-    return newsRepository.findAllByStatus(newsStatus);
+    return withoutDeleted(newsRepository.findAllByStatus(newsStatus));
   }
 
   @Override
   public List<News> searchByTitle(String title) {
-    return newsRepository.findByTitleContaining(title);
+    return withoutDeleted(newsRepository.findByTitleContaining(title));
   }
 
   @Override
@@ -45,6 +45,16 @@ public class SearchServiceImpl implements SearchService {
       }
     }
     return new ArrayList<>();
+  }
+
+  private List<News> withoutDeleted(List<News> allFoundedNews) {
+    List<News> unDeleted = new ArrayList<>();
+    for (News news : allFoundedNews) {
+      if (!news.deleted) {
+        unDeleted.add(news);
+      }
+    }
+    return unDeleted;
   }
 
 }

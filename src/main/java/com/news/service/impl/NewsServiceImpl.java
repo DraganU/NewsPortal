@@ -20,13 +20,7 @@ public class NewsServiceImpl implements NewsService {
   @Override
   public List<News> getAllNews() {
     List<News> allNews = newsRepository.findAll();
-    List<News> unDeleted = new ArrayList<>();
-    for (News n : allNews) {
-      if (!n.deleted) {
-        unDeleted.add(n);
-      }
-    }
-    return unDeleted;
+    return withoutDeleted(allNews);
   }
 
   @Override
@@ -64,5 +58,15 @@ public class NewsServiceImpl implements NewsService {
       }
     }
     return false;
+  }
+
+  private List<News> withoutDeleted(List<News> allFoundedNews) {
+    List<News> unDeleted = new ArrayList<>();
+    for (News news : allFoundedNews) {
+      if (!news.deleted) {
+        unDeleted.add(news);
+      }
+    }
+    return unDeleted;
   }
 }
