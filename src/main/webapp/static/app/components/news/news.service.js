@@ -17,17 +17,17 @@
       });
     };
 
-    var createNewsAndEditNews = function(oneNews) {  //return $http.post(url + "/create", oneNews);
-      return $http.post(url + "/create", oneNews).then(function(response) {
-        return response.data;
-      });
-    };
-
     var getById = function(id) {
       return $http.get(url + "/" + id).then(function(response) {
         return response.data;
       });
     }
+    
+    var createNewsAndEditNews = function(oneNews) {  //return $http.post(url + "/create", oneNews);
+      return $http.post(url + "/create", oneNews).then(function(response) {
+        return response.data;
+      });
+    };
 
     var deleteNews = function(vest) {
       return $http.delete(url + "/remove/" + vest.id);
