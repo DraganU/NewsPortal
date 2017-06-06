@@ -12,8 +12,6 @@
     $scope.news = news;
     $scope.hideFooter = false;
 
-<<<<<<< Updated upstream
-=======
     // $scope.filter = {
     //   "category": $stateParams.category ? $stateParams.category : ''
     //   //search: $scope.search
@@ -34,7 +32,6 @@
     // };
     // getNewsByCategory();
 
->>>>>>> Stashed changes
     $scope.addNews = function() {
       $state.go("main.addNews");
     };
@@ -42,9 +39,9 @@
     $scope.removeNews = function(vest) {
       NewsService.deleteNews(vest)
           .then($timeout(function() {
-            $state.reload();  //dovoljno je samo ovo (umesto stateRefresh();) a sa pozivom $state.go('main.news') NECE RADIti
-          }, 300)             //JER JE ON VEC NA NEWS STR. NE MOZE DA SE OPET PREKO 'main.news', vrati na samu sebe neg mora state.reload
-      )
+                $state.reload();  //dovoljno je samo ovo (umesto stateRefresh();) a sa pozivom $state.go('main.news') NECE RADIti
+              }, 300)             //JER JE ON VEC NA NEWS STR. NE MOZE DA SE OPET PREKO 'main.news', vrati na samu sebe neg mora state.reload
+          )
     }
 
     // var stateRefresh = function() {               //moze i da pise $state.go() umesto trransitionTo; isto je
