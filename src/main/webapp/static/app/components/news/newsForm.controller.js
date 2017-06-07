@@ -16,9 +16,8 @@
     $scope.submitNews = function() {    // createNewsAndEditNews RADI I EDIT I ADD new NEWS
       NewsService.createNewsAndEditNews($scope.news).then($timeout(function() {
             $state.go('main.news');   //  OVDE RADI STATE.GO JER MENJAMO STANJE, VRACAMO SE NA DRUGI STATE
-            //stateRefresh();        // ovo radi
             //state.reload('main.news');   //ovako ce reloadoovati al i nece prebaciti na news stranicu
-          }, 100)
+          }, 300)
       )
     }
 
