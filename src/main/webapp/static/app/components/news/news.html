@@ -1,35 +1,37 @@
-<div>
-  <!--HEADER-->
-  <div class="row">
+<!--HEADER-->
+<div class="row">
 
-    <div class="col-sm-2">
-      <button class="btn btn-success" ng-click="addNews()">Add news</button>
-    </div>
+  <div class="col-sm-2">
+    <button class="btn btn-success" ng-click="addNews()">Add news</button>
+  </div>
 
-    <div class="col-sm-8">
-      <form role="search">
-        <select name="search" class="form-control" ng-model="search">
-          <option value="">Izaberi tip pretrage</option>
-          <option value=""> - - - - - - -</option>
-          <option value="kategorija">Kategorija</option>
-          <option value="status">Status</option>
-          <option value="naslov">Naslov</option>
-        </select>
-      </form>
-    </div>
-    <div class="col-sm-2">
-      <button type="submit" class="btn btn-primary search-btn">Pretrazi vest</button>
-    </div>
+  <div class="col-sm-8">
+    <form role="search">
+      <select name="search" class="form-control" ng-model="search">
+        <option value="">Izaberi tip pretrage</option>
+        <option value=""> - - - - - - -</option>
+        <option value="kategorija">Kategorija</option>
+        <option value="status">Status</option>
+        <option value="naslov">Naslov</option>
+      </select>
+    </form>
+  </div>
+  <div class="col-sm-2">
+    <button type="submit" class="btn btn-primary search-btn">Pretrazi vest</button>
+  </div>
+  <br>
+</div>  <!--end row-->
 
-  </div>  <!--end row-->
-
-  <!--BREAKING NEWS-->
-  <h4>{{vest.title}}</h4>
-  <span class="pull-right">{{vest.created}}</span>
-  <p>{{vest.description}}</p>
+<!--BREAKING NEWS-->
+<div class="col-sm-12 content-container">
+  <h3>Breaking</h3>
+  <div>
+    <h4>{{vest.title}}</h4>
+    <span class="pull-right">{{vest.created}}</span>
+    <p>{{vest.description}}</p>
+  </div>
 </div>
-</div>
-</div>
+
 
 <!--STANDARD NEWS-->
 <div class="col-sm-12 content-container">
@@ -44,7 +46,7 @@
     <button class=" btn-sm btn-danger pull-right" ng-click="removeNews(vest)">Delete news</button>
   </div>
 </div>
-</div>
+
 
 
 
