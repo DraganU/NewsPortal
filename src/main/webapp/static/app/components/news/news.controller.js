@@ -10,13 +10,10 @@
   function NewsController($scope, news, $state, NewsService, $stateParams, $timeout) {
 
     $scope.news = news;
-    $scope.hideFooter = false;
 
-    // $scope.filter = {
-    //   "category": $stateParams.category ? $stateParams.category : ''
-    //   //search: $scope.search
-    // }
-    //
+    // $scope.search = kategorija;
+
+
     // $scope.$watch("filter", function() {
     //   getNewsByCategory();
     // }, true);
