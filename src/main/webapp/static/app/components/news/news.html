@@ -7,17 +7,11 @@
 
   <div class="col-sm-8">
     <form role="search">
-      <select name="search" class="form-control" ng-model="search">
-        <option value="">Izaberi tip pretrage</option>
-        <option value=""> - - - - - - -</option>
-        <option value="kategorija">Kategorija</option>
-        <option value="status">Status</option>
-        <option value="naslov">Naslov</option>
-      </select>
+      <input name="search" class="form-control input-sm" ng-model="searchTitle">
     </form>
   </div>
   <div class="col-sm-2">
-    <button type="submit" class="btn btn-primary search-btn">Pretrazi vest</button>
+    <button type="submit" class="btn btn-primary search-btn" ng-click="searchTitleFunc()">Pretrazi vest</button>
   </div>
   <br>
 </div>  <!--end row-->

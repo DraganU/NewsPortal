@@ -11,27 +11,16 @@
 
     $scope.news = news;
 
-    // $scope.search = kategorija;
+    $scope.searchTitleFunc = function() {
+      NewsService.searchByTitle($scope.searchTitle).then(function(data) {
+        $scope.news = data;
+      })
+    }
 
-
-    // $scope.$watch("filter", function() {
-    //   getNewsByCategory();
-    // }, true);
-    //
-    // var getNewsByCategory = function() {
-    //   NewsService.getAllnews({
-    //     "filter": {
-    //       "category": $scope.filter.category
-    //     }
-    //   }).then(function(data) {
-    //     $scope.news = data;
-    //   });
-    // };
-    // getNewsByCategory();
 
     $scope.addNews = function() {
       $state.go("main.addNews");
-    };
+    }
 
     $scope.removeNews = function(vest) {
       NewsService.deleteNews(vest)
@@ -48,9 +37,11 @@
     //     notify: true
     //   });
     // }
+
   }
 
-})();
+})
+();
 
 
 
