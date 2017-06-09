@@ -6,7 +6,7 @@
       <button class="btn btn-success" ng-click="addNews()">Add news</button>
     </div>
 
-    <div class="col-sm-8 col-sm-offset-1">
+    <div class="col-sm-8">
       <form role="search">
         <div class="form-group col-sm-9">
           <input type="text" class="form-control input-sm search" placeholder="Search..." ng-model="searchTitle"
@@ -20,7 +20,7 @@
   </div>
 
   <!--BREAKING NEWS-->
-  <div class="col-sm-12 content-container">   <!--<div class="col-md-4 col-sm-6 grey"></div>-->
+  <div class="col-sm-12 content-container ng-show='sakri'">
     <h3>Breaking</h3>
     <div style="background-image: url('{{vest.imageName1}}')" class="col-sm-4 breaking"
          ng-repeat="vest in news | filter: 'BREAKING'| limitTo: 6">

@@ -14,9 +14,9 @@
     $scope.searchTitleFunc = function() {
       NewsService.searchByTitle($scope.searchTitle).then(function(data) {
         $scope.news = data;
+        $scope.sakri = false;
       })
     }
-
 
     $scope.addNews = function() {
       $state.go("main.addNews");
