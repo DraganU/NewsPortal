@@ -1,51 +1,63 @@
-<div>
-  <!--HEADER-->
-  <div class="row">
-
-    <div class="col-sm-2">
-      <button class="btn btn-success" ng-click="addNews()">Add news</button>
-    </div>
-
-    <div class="col-sm-10">
-      <form role="search">
-        <div class="form-group col-sm-9">
-          <input type="text" class="form-control input-sm search" placeholder="Search by title" ng-model="searchTitle"
-        </div>
-        <div class="col-sm-3">
-          <button type="submit" class="btn btn-primary search-btn" ng-click="searchTitleFunc()">Pretrazi vest</button>
-        </div>
-      </form>
-    </div>
-
+<!--HEADER-->
+<!--Search by Title-->
+<div class="row">
+  <div class="col-sm-2">
+    <button class="btn btn-success" ng-click="addNews()">Add news</button>
   </div>
 
-  <!--BREAKING NEWS-->
-  <div class="col-sm-12 content-container ng-show='sakri'">
-    <h3>Breaking</h3>
-    <div style="background-image: url('{{vest.imageName1}}')" class="col-sm-4 breaking"
-         ng-repeat="vest in news | filter: 'BREAKING'| limitTo: 6">
-      <div class="breaking-title-section">
-        <h4>{{vest.title}}</h4>
-        <span class="pull-right">{{vest.created}}</span>
-        <p>{{vest.description}}</p>
+  <div class="col-sm-8">
+    <form role="search" class="form-inline">
+      <div class="form-group">
+        <input type="text" class="form-control input-sm search" placeholder="Search by title" ng-model="searchTitle"/>
       </div>
-    </div>
+      <button type="submit" class="btn btn-primary search-btn" ng-click="searchTitleFunc()">Pretrazi vest</button>
+    </form>
   </div>
+</div>
 
-  <!--STANDARD NEWS-->
-  <div class="col-sm-12 content-container">
-    <h3>Standard</h3>
-    <div class="col-sm-3 standard" ng-repeat="vest in news">
-      <h3><a ui-sref="main.newsDetail({id:vest.id})">{{vest.title}}</a></h3>
-      <br>
+<!--Search by Status-->
+<div class="row">
+  <div class="col-sm-8">
+    <form role="search" class="form-inline">
+      <div class="form-group">
+        <select name="status" class="form-control" id="status" ng-model="searchStatus" placeholder="Search by status">
+          <option value="BREAKING">Breaking</option>
+          <option value="MOSTPOPULAR">Mostpopular</option>
+          <option value="STANDARD">Standard</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary search-btn" ng-click="searchStatusFunc()">Pretrazi vest</button>
+    </form>
+  </div>
+</div>
+
+<!--BREAKING NEWS-->
+<div class="col-sm-12 content-container ng-show='sakri'">
+  <h3>Breaking</h3>
+  <div style="background-image: url('{{vest.imageName1}}')" class="col-sm-4 breaking"
+       ng-repeat="vest in news | filter: 'BREAKING'| limitTo: 6">
+    <div class="breaking-title-section">
+      <h4>{{vest.title}}</h4>
       <span class="pull-right">{{vest.created}}</span>
       <p>{{vest.description}}</p>
-      <br>
-      <button class="btn-sm btn-success pull-right" ui-sref="main.editNews({id:vest.id})">Edit news</button>
-      <button class=" btn-sm btn-danger pull-right" ng-click="removeNews(vest)">Delete news</button>
     </div>
   </div>
 </div>
+
+<!--STANDARD NEWS-->
+<div class="col-sm-12 content-container">
+  <h3>Standard</h3>
+  <div class="col-sm-3 standard" ng-repeat="vest in news">
+    <h3><a ui-sref="main.newsDetail({id:vest.id})">{{vest.title}}</a></h3>
+    <br>
+    <span class="pull-right">{{vest.created}}</span>
+    <p>{{vest.description}}</p>
+    <br>
+    <button class="btn-sm btn-success pull-right" ui-sref="main.editNews({id:vest.id})">Edit news</button>
+    <button class=" btn-sm btn-danger pull-right" ng-click="removeNews(vest)">Delete news</button>
+  </div>
+</div>
+
 
 
 

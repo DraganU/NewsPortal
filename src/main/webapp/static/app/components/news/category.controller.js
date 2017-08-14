@@ -11,6 +11,12 @@
 
     $scope.category = category;
 
+    $scope.searchTitleFunc = function() {
+      NewsService.searchByTitle($scope.searchTitle).then(function(data) {
+        $scope.category = data;
+      })
+    }
+
   }
 
 })();

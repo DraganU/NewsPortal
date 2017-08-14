@@ -11,10 +11,18 @@
 
     $scope.news = news;
 
+    $scope.status = ["BREAKING", "MOSTPOPULAR", "STANDARD"];
+
     $scope.searchTitleFunc = function() {
       NewsService.searchByTitle($scope.searchTitle).then(function(data) {
         $scope.news = data;
         $scope.sakri = false;
+      })
+    }
+
+    $scope.searchStatusFunc = function() {
+      NewsService.searchByStatus($scope.searchStatus).then(function(data) {
+        $scope.news = data;
       })
     }
 
