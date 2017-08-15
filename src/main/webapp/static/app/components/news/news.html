@@ -6,23 +6,37 @@
       <button class="btn btn-success" ng-click="addNews()">Add news</button>
     </div>
 
-    <div class="col-sm-8 col-sm-offset-1">
-      <form role="search">
-        <div class="form-group col-sm-9">
-          <input type="text" class="form-control input-sm search" placeholder="Search...">
+    <div class="col-sm-8">
+      <form role="search" class="form-inline">
+        <div class="form-group">
+          <input type="text" class="form-control input-sm search" placeholder="Search by title" ng-model="searchTitle"/>
         </div>
-        <div class="col-sm-3">
-          <button type="submit" class="btn btn-primary search-btn">Pretrazi vest</button>
-        </div>
+        <button type="submit" class="btn btn-primary search-btn" ng-click="searchTitleFunc()">Pretrazi vest</button>
       </form>
     </div>
+  </div>
 
+  <!--Search by Status-->
+  <div class="row">
+    <div class="col-sm-8">
+      <form role="search" class="form-inline">
+        <div class="form-group">
+          <select name="status" class="form-control" id="status" ng-model="searchStatus" placeholder="Search by status">
+            <option value="BREAKING">Breaking</option>
+            <option value="MOSTPOPULAR">Mostpopular</option>
+            <option value="STANDARD">Standard</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary search-btn" ng-click="searchStatusFunc()">Pretrazi vest</button>
+      </form>
+    </div>
   </div>
 
   <!--BREAKING NEWS-->
   <div class="col-sm-12 content-container">   <!--<div class="col-md-4 col-sm-6 grey"></div>-->
     <h3>Breaking</h3>
-    <div style="background-image: url('{{vest.imageName1}}')" class="col-sm-4 breaking" ng-repeat="vest in news | filter: 'BREAKING'| limitTo: 6">
+    <div style="background-image: url('{{vest.imageName1}}')" class="col-sm-4 breaking"
+         ng-repeat="vest in news | filter: 'BREAKING'| limitTo: 6">
       <div class="breaking-title-section">
         <h4>{{vest.title}}</h4>
         <span class="pull-right">{{vest.created}}</span>
