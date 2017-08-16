@@ -7,9 +7,10 @@
       .config(config);
 
   config.$inject = ["$stateProvider", "$urlRouterProvider"];
+
   function config($stateProvider, $urlRouterProvider) {
 
-    //$urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/home');
 
     $stateProvider
         .state('main', {
@@ -26,6 +27,15 @@
             }
           }
         })
+        .state('main.about', {
+          url: "/about",
+          views: {
+            "content@": {
+              templateUrl: 'static/app/components/core/about.html'
+            }
+          }
+        })
+
 
   }
 

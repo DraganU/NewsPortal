@@ -7,6 +7,7 @@
       .controller('NewsFormController', NewsFormController);
 
   NewsFormController.$inject = ["$scope", "news", "NewsService", "$state", "$timeout"];
+
   function NewsFormController($scope, news, NewsService, $state, $timeout) {
 
     $scope.news = news;
@@ -18,7 +19,7 @@
             $state.go('main.news');   //  OVDE RADI STATE.GO JER MENJAMO STANJE, VRACAMO SE NA DRUGI STATE
             //stateRefresh();        // ovo radi
             //state.reload('main.news');   //ovako ce reloadoovati al i nece prebaciti na news stranicu
-          }, 100)
+          }, 300)
       )
     }
 

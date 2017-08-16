@@ -10,6 +10,10 @@ h1, h2, h3, h4 {
   font-family: 'Roboto', sans-serif;
 }
 
+.row {
+  margin-bottom: 2em;
+}
+
 .navbar-inverse {
   background: #424242;
   height: 70px;
@@ -47,6 +51,7 @@ h1, h2, h3, h4 {
 
 .search-btn {
   float: right;
+  margin-right: 30px;
 }
 
 .content-container {
@@ -110,6 +115,12 @@ h1, h2, h3, h4 {
   color: white;
   font-size: large;
   text-align: center;
+}
+
+.select {
+  height: 2.8em;
+  color: darkgrey;
+  font-size: 12px;
 }
 
 /*@media screen and (max-width: 770px) {}*/
