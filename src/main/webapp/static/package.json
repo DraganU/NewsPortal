@@ -1,0 +1,12 @@
+{
+  "name": "static",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Milana&Dragan Ujfalusi",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "1.5.9",
+    "angular-bootstrap": "2.3.0",
+    "angular-ui-router": "0.3.2"
+  }
+}
