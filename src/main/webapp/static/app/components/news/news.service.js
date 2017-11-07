@@ -10,7 +10,7 @@
 
   function NewsService($http) {
 
-    var url = "http://localhost:8091/news";
+    var url = "http://localhost:8080/news-portal/news";
 
     var getAllnews = function() {
       return $http.get(url).then(function(response) {
@@ -35,21 +35,21 @@
     };
 
     var searchByCategory = function(params) {
-      return $http.get("http://localhost:8091/search/category?category=" + params).then(function(response) {
+      return $http.get("http://localhost:8080/news-portal/search/category?category=" + params).then(function(response) {
         console.log(response.data);
         return response.data;
       });
     }
 
     var searchByStatus = function(params) {
-      return $http.get("http://localhost:8091/search/status?status=" + params).then(function(response) {
+      return $http.get("http://localhost:8080/news-portal/search/status?status=" + params).then(function(response) {
         console.log(response.data);
         return response.data;
       });
     }
 
     var searchByTitle = function(params) {
-      return $http.get("http://localhost:8091/search/title?title=" + params).then(function(response) {
+      return $http.get("http://localhost:8080/news-portal/search/title?title=" + params).then(function(response) {
         console.log(response.data);
         return response.data;
       });
