@@ -25,7 +25,7 @@ public class SearchController {
     if (!listOfNewsByCategory.isEmpty()) {
       return new ResponseEntity<>(listOfNewsByCategory, HttpStatus.OK);
     }
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>(HttpStatus.OK);
   }
 
   @GetMapping(value = "/status")
@@ -34,7 +34,7 @@ public class SearchController {
     if (!listOfNewsByStatus.isEmpty()){
       return new ResponseEntity<>(listOfNewsByStatus, HttpStatus.OK);
     }
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>(HttpStatus.OK);
   }
 
   @GetMapping(value = "/title")
@@ -43,7 +43,7 @@ public class SearchController {
     if (!listOfNewsByTitle.isEmpty()) {
       return new ResponseEntity<>(listOfNewsByTitle, HttpStatus.OK);
     }
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>(HttpStatus.OK);
   }
 
 }

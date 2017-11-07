@@ -42,7 +42,7 @@ public class NewsController {
       newsService.removeById(id);
       return new ResponseEntity<>(news, HttpStatus.OK);
     } else {
-      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+      return new ResponseEntity<>(HttpStatus.OK);
     }
   }
 
@@ -55,7 +55,7 @@ public class NewsController {
     } else if ( news != null ) {
       return new ResponseEntity<>(newsService.save(news), HttpStatus.OK);
     }
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>(HttpStatus.OK);
   }
 
 }
