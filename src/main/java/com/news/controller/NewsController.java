@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,41 +20,27 @@ import com.news.service.NewsService;
 @RequestMapping("news")
 public class NewsController {
 
-  @Autowired NewsService newsService;
+  @Autowired
+  NewsService newsService;
 
   @GetMapping
   public ResponseEntity<List<News>> getAllNews() {
-    List<News> newsList = newsService.getAllNews();
-    return new ResponseEntity<>(newsList, HttpStatus.OK);
+    return new ResponseEntity<>(newsService.getAllNews(), HttpStatus.OK);
   }
 
   @GetMapping(value = "/{id}")
   public ResponseEntity<News> getNewsById(@PathVariable Long id) {
-    News news = newsService.getNewsById(id);
-    return new ResponseEntity<>(news, HttpStatus.OK);
+    return new ResponseEntity<>(newsService.getNewsById(id), HttpStatus.OK);
   }
 
   @DeleteMapping(value = "/remove/{id}")
   public ResponseEntity<News> deleteNews(@PathVariable Long id) {
-    News news = newsService.getNewsById(id);
-    if (news != null) {
-      newsService.removeById(id);
-      return new ResponseEntity<>(news, HttpStatus.OK);
-    } else {
-      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
+      return new ResponseEntity<>(newsService.removeById(id), HttpStatus.OK);
   }
 
-  @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+  @PostMapping(value = "/create")
   public ResponseEntity<News> addNews(@RequestBody News news) {
-    // Edit
-    if (newsService.isNewsExist(news)) {
-      return new ResponseEntity<>(newsService.save(news), HttpStatus.OK);
-    // Add
-    } else if ( news != null ) {
-      return new ResponseEntity<>(newsService.save(news), HttpStatus.OK);
-    }
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>(newsService.save(news), HttpStatus.OK);
   }
 
 }

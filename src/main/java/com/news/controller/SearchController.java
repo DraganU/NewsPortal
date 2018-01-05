@@ -21,29 +21,17 @@ public class SearchController {
 
   @GetMapping(value = "/category")
   public ResponseEntity<List<News>> searchByCategory(@RequestParam String category) {
-    List<News> listOfNewsByCategory = searchService.ifEnumExistFindNews(category);
-    if (!listOfNewsByCategory.isEmpty()) {
-      return new ResponseEntity<>(listOfNewsByCategory, HttpStatus.OK);
-    }
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>(searchService.ifEnumExistFindNews(category), HttpStatus.OK);
   }
 
   @GetMapping(value = "/status")
   public ResponseEntity<List<News>> searchByStatus(@RequestParam String status) {
-    List<News> listOfNewsByStatus = searchService.ifEnumExistFindNews(status);
-    if (!listOfNewsByStatus.isEmpty()){
-      return new ResponseEntity<>(listOfNewsByStatus, HttpStatus.OK);
-    }
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>(searchService.ifEnumExistFindNews(status), HttpStatus.OK);
   }
 
   @GetMapping(value = "/title")
   public ResponseEntity<List<News>> searchByTitle(@RequestParam String title) {
-    List<News> listOfNewsByTitle = searchService.searchByTitle(title);
-    if (!listOfNewsByTitle.isEmpty()) {
-      return new ResponseEntity<>(listOfNewsByTitle, HttpStatus.OK);
-    }
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>(searchService.searchByTitle(title), HttpStatus.OK);
   }
 
 }

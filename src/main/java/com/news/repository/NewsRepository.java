@@ -12,10 +12,12 @@ import com.news.model.NewsStatus;
 @Repository
 public interface NewsRepository extends JpaRepository<News, Long> {
 
-  List<News> findAllByCategory(NewsCategory newsCategory);
+  List<News> findAllByDeleted(boolean deleted);
 
-  List<News> findAllByStatus(NewsStatus newsStatus);
+  List<News> findAllByCategoryAndDeleted(NewsCategory newsCategory, boolean deleted);
 
-  List<News> findByTitleContaining(String title);
+  List<News> findAllByStatusAndDeleted(NewsStatus newsStatus, boolean deleted);
+
+  List<News> findAllByTitleContainingAndDeleted(String title, boolean deleted);
 
 }

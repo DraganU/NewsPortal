@@ -19,24 +19,29 @@ import lombok.Setter;
 @Entity
 public class News {
 
-  @Id @GeneratedValue Long id;
+  @Id
+  @GeneratedValue
+  private Long id;
 
-  String title;
+  private String title;
 
-  String description;
+  private String description;
 
-  @Column(columnDefinition = "TEXT") String text;
+  @Column(columnDefinition = "TEXT")
+  private String text;
 
-  NewsStatus status;
+  private NewsStatus status;
 
-  NewsCategory category;
+  private NewsCategory category;
 
-  String imageName1;
+  private String imageName1;
 
-  String imageName2;
+  private String imageName2;
 
-  @Temporal(TemporalType.DATE) @DateTimeFormat(pattern = "yyyy-MM-dd") @Column(name = "created", nullable = false)
-  public Date created;
+  @Temporal(TemporalType.DATE) @DateTimeFormat(pattern = "yyyy-MM-dd")
+  @Column(name = "created", nullable = false)
+  private Date created;
 
-  @Column(columnDefinition = "boolean default false") public boolean deleted;
+  @Column(columnDefinition = "boolean default false")
+  private boolean deleted;
 }

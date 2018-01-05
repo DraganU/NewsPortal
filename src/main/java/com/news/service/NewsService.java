@@ -1,19 +1,55 @@
 package com.news.service;
 
+import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.news.controller.exceptions.EntityNotFoundException;
 import com.news.model.News;
+import com.news.repository.NewsRepository;
 
-public interface NewsService {
+@Service
+public class NewsService {
 
-  List<News> getAllNews();
+  @Autowired
+  NewsRepository newsRepository;
 
-  News getNewsById(Long id);
+  // Should also exist get all news deleted and unDeleted together for admin purposes.
+  public List<News> getAllNews() {
+    return newsRepository.findAllByDeleted(false);
+  }
 
-  void removeById(Long id);
+  public News getNewsById(Long id) {
+    News news = newsRepository.findOne(id);
+    if (news != null) {
+      return newsRepository.findOne(id);
+    } else {
+      throw new EntityNotFoundException();
+    }
+  }
 
-  News save(News news);
+  @Transactional
+  public News removeById(Long id) {
+    News news = newsRepository.findOne(id);
+    if (news != null) {
+      news.setDeleted(true);
+      return newsRepository.save(news);
+    }
+    throw new EntityNotFoundException();
+  }
 
-  boolean isNewsExist(News news);
+  // Save or edit
+  @Transactional
+  public News save(News news) {
+    if (news.getId() == null) {
+      news.setCreated(new Date());
+      return newsRepository.save(news);
+    } else {
+      return newsRepository.save(news);
+    }
+  }
+
 }
-
